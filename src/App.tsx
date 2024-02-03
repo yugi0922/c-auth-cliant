@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import CallbackPage from './pages/CallbackPage';
+import HomePage from './pages/HomePage'; // 仮のホームページコンポーネント
+import DisplayPage from './pages/DisplayPage';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App: React.FC = () => {
+    return (
+            <Routes>
+                <Route path="/" element={<LoginPage />} />
+                <Route path="/callback" element={<CallbackPage />} />
+                <Route path="/home" element={<HomePage />} />
+                <Route path="/display" element={<DisplayPage />} />
+                {/* 他のルート */}
+            </Routes>
+    );
+};
 
 export default App;
